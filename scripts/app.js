@@ -6,10 +6,10 @@ const icon = document.querySelector('.icon img');
 const forecast = new Forecast();
 
 const updateUI = (data) => {
-  // destructure properties
+  
   const { cityDets, weather } = data;
 
-  // update details template
+  // update the template with details
   details.innerHTML = `
     <h5 class="my-3">${cityDets.EnglishName}</h5>
     <div class="my-3">${weather.WeatherText}</div>
@@ -19,7 +19,7 @@ const updateUI = (data) => {
     </div>
   `;
 
-  // update the night/day & icon images
+  // update the icons for night, day & icon
   const iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
   icon.setAttribute('src', iconSrc);
   
@@ -33,7 +33,6 @@ const updateUI = (data) => {
 };
 
 cityForm.addEventListener('submit', e => {
-  // prevent default action
   e.preventDefault();
   
   // get city value
